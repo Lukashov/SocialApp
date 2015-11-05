@@ -36,8 +36,6 @@ public class ShareDialog extends DialogFragment implements View.OnClickListener 
     private Button mButtonAddShare;
     private Button mButtonCancel;
 
-    private ImageView mImageView;
-
     private static final int Pick_image = 1;
     private Bitmap mBitmap;
 
@@ -58,8 +56,6 @@ public class ShareDialog extends DialogFragment implements View.OnClickListener 
         mButtonCancel.setOnClickListener(this);
 
         mImageViewSharePicture.setOnClickListener(this);
-
-        mImageView = (ImageView) view.findViewById(R.id.img_DFS);
 
         return view;
     }
@@ -94,7 +90,6 @@ public class ShareDialog extends DialogFragment implements View.OnClickListener 
             final Uri imageUri = data.getData();
             try {
                 mBitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
-                Log.d("BITMAP:"," uri: " + imageUri.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -115,7 +110,7 @@ public class ShareDialog extends DialogFragment implements View.OnClickListener 
             params.putByteArray("source", byteArray);
             permissions = "me/photos";
         }
-        
+
         params.putString("message", mEditTextShareText.getText().toString());
 
         new GraphRequest(

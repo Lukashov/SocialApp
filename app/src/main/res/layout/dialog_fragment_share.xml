@@ -50,12 +50,4 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_DFS"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/ll"
-        android:layout_centerHorizontal="true"/>
-
-
 </RelativeLayout>
